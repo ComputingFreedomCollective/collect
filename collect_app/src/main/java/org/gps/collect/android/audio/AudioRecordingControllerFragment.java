@@ -1,0 +1,127 @@
+package org.gps.collect.android.audio;
+
+import android.content.Context;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+
+import org.gps.collect.android.R;
+import org.gps.collect.android.analytics.AnalyticsEvents;
+import org.gps.collect.android.databinding.AudioRecordingControllerFragmentBinding;
+import org.gps.collect.android.formentry.BackgroundAudioViewModel;
+import org.gps.collect.android.formentry.FormEntryViewModel;
+import org.gps.collect.android.injection.DaggerUtils;
+import org.gps.collect.android.utilities.TranslationHandler;
+import org.gps.collect.audiorecorder.recording.AudioRecorder;
+import org.gps.collect.audiorecorder.recording.RecordingSession;
+import org.gps.collect.strings.format.LengthFormatterKt;
+
+import javax.inject.Inject;
+
+import static android.view.View.GONE;
+import static android.view.View.VISIBLE;
+import static org.gps.collect.android.utilities.DialogUtils.showIfNotShowing;
+import static org.gps.collect.android.utilities.LiveDataUtils.zip3;
+
+public class AudioRecordingControllerFragment extends Fragment {
+
+    @Inject
+    AudioRecorder audioRecorder;
+
+    @Inject
+    FormEntryViewModel.Factory formEntryViewModelFactory;
+
+    @Inject
+    BackgroundAudioViewModel.Factory backgroundAudioViewModelFactory;
+
+    public AudioRecordingControllerFragmentBinding binding;
+    private FormEntryViewModel formEntryViewModel;
+    private BackgroundAudioViewModel backgroundAudioViewModel;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        DaggerUtils.getComponent(context).inject(this);
+
+        formEntryViewModel = new ViewModelProvider(requireActivity(), formEntryViewModelFactory).get(FormEntryViewModel.class);
+        backgroundAudioViewModel = new ViewModelProvider(requireActivity(), backgroundAudioViewModelFactory).get(BackgroundAudioViewModel.class);
+    }
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        binding = AudioRecordingControllerFragmentBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        zip3(formEntryViewModel.hasBackgroundRecording(), backgroundAudioViewModel.isBackgroundRecordingEnabled(), audioRecorder.getCurrentSession()).observe(getViewLifecycleOwner(), triple -> {
+            boolean hasBackgroundRecording = triple.getFirst();
+            boolean isBackgroundRecordingEnabled = triple.getSecond();
+            RecordingSession session = triple.getThird();
+
+            update(hasBackgroundRecording, isBackgroundRecordingEnabled, session);
+        });
+
+        binding.stopRecording.setOnClickListener(v -> audioRecorder.stop());
+    }
+
+    private void update(boolean hasBackgroundRecording, boolean isBackgroundRecordingEnabled, RecordingSession session) {
+        if (session == null && hasBackgroundRecording && !isBackgroundRecordingEnabled) {
+            binding.getRoot().setVisibility(VISIBLE);
+            binding.recordingIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_mic_off_24));
+            binding.timeCode.setText(TranslationHandler.getString(requireContext(), R.string.recording_disabled, "⋮"));
+            binding.waveform.setVisibility(GONE);
+            binding.pauseRecording.setVisibility(GONE);
+            binding.stopRecording.setVisibility(GONE);
+        } else if (session == null) {
+            binding.getRoot().setVisibility(GONE);
+        } else if (session.getFailedToStart() != null) {
+            binding.getRoot().setVisibility(GONE);
+            showIfNotShowing(AudioRecordingErrorDialogFragment.class, getParentFragmentManager());
+        } else if (session.getFile() == null) {
+            binding.getRoot().setVisibility(VISIBLE);
+
+            binding.timeCode.setText(LengthFormatterKt.formatLength(session.getDuration()));
+            binding.waveform.addAmplitude(session.getAmplitude());
+
+            if (session.getPaused()) {
+                binding.pauseRecording.setIcon(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_mic_24));
+                binding.pauseRecording.setContentDescription(getString(R.string.resume_recording));
+                binding.pauseRecording.setOnClickListener(v -> audioRecorder.resume());
+
+                binding.recordingIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_pause_24dp));
+            } else {
+                binding.pauseRecording.setIcon(ContextCompat.getDrawable(requireContext(), R.drawable.ic_pause_24dp));
+                binding.pauseRecording.setContentDescription(getString(R.string.pause_recording));
+                binding.pauseRecording.setOnClickListener(v -> {
+                    audioRecorder.pause();
+                    formEntryViewModel.logFormEvent(AnalyticsEvents.AUDIO_RECORDING_PAUSE);
+                });
+
+                binding.recordingIcon.setImageDrawable(ContextCompat.getDrawable(requireContext(), R.drawable.ic_baseline_mic_24));
+            }
+
+            // Pause not available before API 24
+            if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.N) {
+                binding.pauseRecording.setVisibility(GONE);
+            }
+
+            if (backgroundAudioViewModel.isBackgroundRecording()) {
+                binding.pauseRecording.setVisibility(GONE);
+                binding.stopRecording.setVisibility(GONE);
+            }
+        } else {
+            binding.getRoot().setVisibility(GONE);
+        }
+    }
+}
