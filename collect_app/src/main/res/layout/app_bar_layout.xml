@@ -5,6 +5,7 @@
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:elevation="4dp">
 
         <com.google.android.material.appbar.MaterialToolbar
@@ -13,6 +14,7 @@
             style="@style/Widget.Collect.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             app:navigationIcon="@drawable/notes" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -25,5 +27,6 @@
         android:layout_below="@+id/appBarLayout"
         android:layout_marginTop="-7dp"
         android:indeterminate="true"
+        android:background="#FFFFFF"
         android:visibility="gone" />
 </merge>

@@ -51,7 +51,7 @@ public class FormMapTest {
         intent.putExtra(FormEntryActivity.LOCATION_RESULT, GeoUtils.formatLocationResultString(location));
         Instrumentation.ActivityResult result = new Instrumentation.ActivityResult(Activity.RESULT_OK, intent);
 
-        intending(hasComponent("org.odk.collect.android.activities.GeoPointActivity"))
+        intending(hasComponent("org.gps.collect.android.activities.GeoPointActivity"))
                 .respondWith(result);
     }
 

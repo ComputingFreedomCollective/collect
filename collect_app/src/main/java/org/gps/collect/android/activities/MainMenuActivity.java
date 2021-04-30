@@ -106,9 +106,6 @@ public class MainMenuActivity extends CollectAbstractActivity implements AdminPa
     @BindView(R.id.storageMigrationBanner)
     MaterialBanner storageMigrationBanner;
 
-    @BindView(R.id.version_sha)
-    TextView versionSHAView;
-
     @Inject
     StorageMigrationRepository storageMigrationRepository;
 
@@ -229,13 +226,6 @@ public class MainMenuActivity extends CollectAbstractActivity implements AdminPa
             }
         });
 
-        String versionSHA = viewModel.getVersionCommitDescription();
-        if (versionSHA != null) {
-            versionSHAView.setText(versionSHA);
-        } else {
-            versionSHAView.setVisibility(View.GONE);
-        }
-
         // must be at the beginning of any activity that can be called from an
         // external intent
         Timber.i("Starting up, creating directories");
@@ -348,7 +338,7 @@ public class MainMenuActivity extends CollectAbstractActivity implements AdminPa
 
     private void initToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
-        setTitle(String.format("%s %s", getString(R.string.app_name), viewModel.getVersion()));
+        setTitle(String.format("%s", getString(R.string.app_name)));
         setSupportActionBar(toolbar);
     }
 

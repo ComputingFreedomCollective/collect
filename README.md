@@ -92,7 +92,7 @@ Certain functions in ODK Collect depend on cloud services that require API keys 
   1. Create and configure a Google API project for Google Sign-in using the "Configure Project" button found [here](https://developers.google.com/identity/sign-in/android/start).
       1. Choose whatever you'd like for the project and product name
       1. Select "Android" for "What are you calling from?"
-      1. Enter "org.odk.collect.android" for package name
+      1. Enter "org.gps.collect.android" for package name
       1. Enter your debug key's SHA1 certificate fingerprint as the SHA1 (more info on that [here](https://developers.google.com/android/guides/client-auth))
       1. Copy the displayed "Client ID" into `client_id` (under `oauth_client`) in `google-services.json`
   1. [Enable the Google Drive API](https://console.developers.google.com/apis/api/drive.googleapis.com).
@@ -175,7 +175,7 @@ Our regular code contributors use these devices (ordered by Android version):
 * [Samsung Galaxy Tab SM-T285](http://www.gsmarena.com/samsung_galaxy_tab_a_7_0_(2016)-7880.php) - Android 5.1.1
 * [Motorola G 5th Gen XT1671](https://www.gsmarena.com/motorola_moto_g5-8454.php) - Android 7.0
 
-The best way to help us test is to build from source! If you aren't a developer and want to help us test release candidates, join the [beta program](https://play.google.com/apps/testing/org.odk.collect.android)!
+The best way to help us test is to build from source! If you aren't a developer and want to help us test release candidates, join the [beta program](https://play.google.com/apps/testing/org.gps.collect.android)!
 
 Testing checklists can be found on the [Collect testing plan](https://docs.google.com/spreadsheets/d/1ITmOW2MFs_8-VM6MTwganTRWDjpctz9CI8QKojXrnjE/edit?usp=sharing).
 

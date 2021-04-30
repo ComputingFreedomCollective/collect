@@ -229,7 +229,7 @@ the specific language governing permissions and limitations under the License.
             android:name=".activities.FormDownloadList"
             android:targetActivity="org.gps.collect.android.activities.FormDownloadListActivity">
             <intent-filter>
-                <action android:name="org.odk.collect.android.FORM_DOWNLOAD" />
+                <action android:name="org.gps.collect.android.FORM_DOWNLOAD" />
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:mimeType="vnd.android.cursor.dir/vnd.odk.form" />
             </intent-filter>
@@ -250,7 +250,7 @@ the specific language governing permissions and limitations under the License.
             android:name=".activities.InstanceUploaderActivity"
             android:targetActivity="org.gps.collect.android.activities.InstanceUploaderActivity">
             <intent-filter>
-                <action android:name="org.odk.collect.android.INSTANCE_UPLOAD" />
+                <action android:name="org.gps.collect.android.INSTANCE_UPLOAD" />
                 <category android:name="android.intent.category.DEFAULT"/>
                 <data android:mimeType="vnd.android.cursor.dir/vnd.odk.instance" />
             </intent-filter>

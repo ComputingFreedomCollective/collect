@@ -36,76 +36,102 @@
                 custom:secondaryActionColor="true" />
             
             <androidx.fragment.app.FragmentContainerView
-                android:name="org.odk.collect.android.fragments.MapBoxInitializationFragment"
+                android:name="org.gps.collect.android.fragments.MapBoxInitializationFragment"
                 android:id="@+id/map_box_initialization_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/margin_standard"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="8dp"
                 android:paddingTop="@dimen/margin_small"
-                android:paddingRight="@dimen/margin_standard"
-                android:paddingBottom="@dimen/margin_standard">
+                android:paddingRight="8dp"
+                android:paddingBottom="0dp">
+
+                <LinearLayout
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
                 <org.gps.collect.android.views.MultiClickSafeButton
                     android:id="@+id/enter_data"
                     style="@style/Widget.Collect.Button.FullWidth"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="175dp"
                     android:layout_marginTop="@dimen/margin_extra_small"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:drawableTop="@drawable/ic_form_new"
                     tools:text="@string/enter_data" />
-
-                <org.gps.collect.android.views.MultiClickSafeButton
-                    android:id="@+id/review_data"
-                    style="@style/Widget.Collect.Button.FullWidth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_extra_small"
-                    tools:text="@string/review_data" />
-
-                <org.gps.collect.android.views.MultiClickSafeButton
-                    android:id="@+id/send_data"
-                    style="@style/Widget.Collect.Button.FullWidth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/margin_extra_small"
-                    tools:text="@string/send_data" />
 
                 <org.gps.collect.android.views.MultiClickSafeButton
                     android:id="@+id/view_sent_forms"
                     style="@style/Widget.Collect.Button.FullWidth"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="175dp"
                     android:layout_marginTop="@dimen/margin_extra_small"
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:drawableTop="@drawable/ic_form_sent"
                     android:text="@string/view_sent_forms" />
 
                 <org.gps.collect.android.views.MultiClickSafeButton
-                    android:id="@+id/get_forms"
+                    android:id="@+id/send_data"
                     style="@style/Widget.Collect.Button.FullWidth"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="175dp"
                     android:layout_marginTop="@dimen/margin_extra_small"
-                    tools:text="@string/get_forms" />
+                    android:layout_marginRight="5dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:drawableTop="@drawable/ic_form_upload"
+                    tools:text="@string/send_data" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="180dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                <org.gps.collect.android.views.MultiClickSafeButton
+                    android:id="@+id/review_data"
+                    style="@style/Widget.Collect.Button.FullWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:layout_marginTop="@dimen/margin_extra_small"
+                    android:layout_marginLeft="5dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:drawableTop="@drawable/ic_form_edit"
+                    tools:text="@string/review_data" />
 
                 <org.gps.collect.android.views.MultiClickSafeButton
                     android:id="@+id/manage_forms"
                     style="@style/Widget.Collect.Button.FullWidth"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="175dp"
                     android:layout_marginTop="@dimen/margin_extra_small"
+                    android:layout_marginLeft="5dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:drawableTop="@drawable/ic_form_remove"
                     tools:text="@string/manage_files" />
 
-                <TextView
-                    android:id="@+id/version_sha"
-                    style="@style/TextAppearance.Collect.Caption"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="@dimen/margin_standard"
-                    tools:text="commit sha" />
+                <org.gps.collect.android.views.MultiClickSafeButton
+                    android:id="@+id/get_forms"
+                    style="@style/Widget.Collect.Button.FullWidth"
+                    android:layout_width="match_parent"
+                    android:layout_height="175dp"
+                    android:layout_marginTop="@dimen/margin_extra_small"
+                    android:layout_marginLeft="5dp"
+                    android:backgroundTint="#FFFFFF"
+                    android:drawableTop="@drawable/ic_form_download"
+                    tools:text="@string/get_forms" />
+
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

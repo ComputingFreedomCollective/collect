@@ -27,7 +27,7 @@ def getMasterCommitCount = { ->
                     commandLine 'cmd', '/c', 'git', 'rev-list', '--first-parent', '--count', 'master'
                     break
                 case 'unix':
-                    commandLine 'git', 'rev-list', '--first-parent', '--count', 'master'
+                    commandLine 'git', 'rev-list', '--first-parent', '--count', 'cfc-dev'
                     break
             }
             standardOutput = stdout
@@ -44,10 +44,10 @@ def getVersionName = { ->
         exec {
             switch (ant.properties.os) {
                 case 'windows':
-                    commandLine 'cmd', '/c', 'git', 'describe', '--tags', '--dirty', '--always'
+                    commandLine 'cmd', '/c', 'git', 'describe', '--tags', '--always'
                     break
                 case 'unix':
-                    commandLine 'git', 'describe', '--tags', '--dirty', '--always'
+                    commandLine 'git', 'describe', '--tags', '--always'
                     break
             }
             standardOutput = stdout
@@ -74,7 +74,7 @@ android {
     }
 
     defaultConfig {
-        applicationId('org.odk.collect.android')
+        applicationId('org.gps.collect.android')
         minSdkVersion rootProject.androidMinSdk
         targetSdkVersion rootProject.androidTargetSdk
         versionCode LEGACY_BUILD_NUMBER_OFFSET + getMasterCommitCount()

@@ -77,7 +77,7 @@ public final class InstancesDaoHelper {
         return complete;
     }
 
-    // TODO: replace with method in {@link org.odk.collect.android.instances.InstancesRepository}
+    // TODO: replace with method in {@link org.gps.collect.android.instances.InstancesRepository}
     // that returns an {@link Instance} object from a path.
     public static Uri getLastInstanceUri(String path) {
         if (path != null) {
@@ -93,7 +93,7 @@ public final class InstancesDaoHelper {
         return null;
     }
 
-    // TODO: replace with method in {@link org.odk.collect.android.instances.InstancesRepository}
+    // TODO: replace with method in {@link org.gps.collect.android.instances.InstancesRepository}
     // that returns an {@link Instance} object from a path.
     public static boolean isInstanceAvailable(String path) {
         boolean isAvailable = false;

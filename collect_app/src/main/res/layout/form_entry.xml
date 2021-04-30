@@ -32,7 +32,7 @@ the License.
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/audio_recording_controller"
-            android:name="org.odk.collect.android.audio.AudioRecordingControllerFragment"
+            android:name="org.gps.collect.android.audio.AudioRecordingControllerFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

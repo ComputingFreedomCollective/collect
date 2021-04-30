@@ -104,7 +104,7 @@ public class ApplicationInitializer {
         new XFormsModule().registerModule();
 
         // When registering prototypes from Collect, a proguard exception also needs to be added
-        PrototypeManager.registerPrototype("org.odk.collect.android.logic.actions.setgeopoint.CollectSetGeopointAction");
+        PrototypeManager.registerPrototype("org.gps.collect.android.logic.actions.setgeopoint.CollectSetGeopointAction");
         XFormParser.registerActionHandler(CollectSetGeopointActionHandler.ELEMENT_NAME, new CollectSetGeopointActionHandler());
     }
 

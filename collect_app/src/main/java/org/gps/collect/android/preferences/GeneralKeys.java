@@ -137,12 +137,12 @@ public final class GeneralKeys {
         hashMap.put(KEY_APP_LANGUAGE, "");
         hashMap.put(KEY_FONT_SIZE, String.valueOf(QuestionFontSizeUtils.DEFAULT_FONT_SIZE));
         hashMap.put(KEY_NAVIGATION, NAVIGATION_BOTH);
-        hashMap.put(KEY_SHOW_SPLASH, false);
+        hashMap.put(KEY_SHOW_SPLASH, true);
         hashMap.put(KEY_SPLASH_PATH, Collect.getInstance().getString(R.string.default_splash_path));
         hashMap.put(KEY_MAGENTA_THEME, false);
         hashMap.put(KEY_EXTERNAL_APP_RECORDING, true);
         // map_preferences.xml
-        hashMap.put(KEY_BASEMAP_SOURCE, BASEMAP_SOURCE_GOOGLE);
+        hashMap.put(KEY_BASEMAP_SOURCE, BASEMAP_SOURCE_OSM);
         hashMap.put(KEY_CARTO_MAP_STYLE, "positron");
         hashMap.put(KEY_USGS_MAP_STYLE, "topographic");
         hashMap.put(KEY_GOOGLE_MAP_STYLE, String.valueOf(GoogleMap.MAP_TYPE_NORMAL));
