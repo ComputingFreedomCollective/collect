@@ -43,7 +43,7 @@
         android:visibility="gone"
         tools:visibility="visible" />
 
-    <org.gps.collect.android.views.InstanceUploaderProgressBar
+    <org.gpssurvey.collect.android.views.InstanceUploaderProgressBar
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

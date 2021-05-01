@@ -76,7 +76,7 @@
         android:visibility="gone"
         tools:visibility="visible">
 
-        <org.gps.collect.android.audio.AudioButton
+        <org.gpssurvey.collect.android.audio.AudioButton
             android:id="@+id/audioButton"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
             android:layout_width="@dimen/touch_target_size"

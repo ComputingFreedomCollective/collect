@@ -19,7 +19,7 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <org.gps.collect.android.views.ObviousProgressBar
+    <org.gpssurvey.collect.android.views.ObviousProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"

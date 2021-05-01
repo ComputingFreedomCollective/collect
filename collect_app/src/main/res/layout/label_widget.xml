@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_marginTop="@dimen/margin_small">
 
-    <org.gps.collect.android.formentry.questions.AudioVideoImageTextLabel
+    <org.gpssurvey.collect.android.formentry.questions.AudioVideoImageTextLabel
         android:id="@+id/question_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

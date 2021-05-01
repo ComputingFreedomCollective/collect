@@ -26,7 +26,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <org.gps.collect.material.MaterialBanner
+            <org.gpssurvey.collect.material.MaterialBanner
                 android:id="@+id/storageMigrationBanner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -36,7 +36,7 @@
                 custom:secondaryActionColor="true" />
             
             <androidx.fragment.app.FragmentContainerView
-                android:name="org.gps.collect.android.fragments.MapBoxInitializationFragment"
+                android:name="org.gpssurvey.collect.android.fragments.MapBoxInitializationFragment"
                 android:id="@+id/map_box_initialization_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"/>
@@ -56,7 +56,7 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                <org.gps.collect.android.views.MultiClickSafeButton
+                <org.gpssurvey.collect.android.views.MultiClickSafeButton
                     android:id="@+id/enter_data"
                     style="@style/Widget.Collect.Button.FullWidth"
                     android:layout_width="match_parent"
@@ -67,7 +67,7 @@
                     android:drawableTop="@drawable/ic_form_new"
                     tools:text="@string/enter_data" />
 
-                <org.gps.collect.android.views.MultiClickSafeButton
+                <org.gpssurvey.collect.android.views.MultiClickSafeButton
                     android:id="@+id/view_sent_forms"
                     style="@style/Widget.Collect.Button.FullWidth"
                     android:layout_width="match_parent"
@@ -78,7 +78,7 @@
                     android:drawableTop="@drawable/ic_form_sent"
                     android:text="@string/view_sent_forms" />
 
-                <org.gps.collect.android.views.MultiClickSafeButton
+                <org.gpssurvey.collect.android.views.MultiClickSafeButton
                     android:id="@+id/send_data"
                     style="@style/Widget.Collect.Button.FullWidth"
                     android:layout_width="match_parent"
@@ -97,7 +97,7 @@
                     android:layout_weight="1"
                     android:orientation="vertical">
 
-                <org.gps.collect.android.views.MultiClickSafeButton
+                <org.gpssurvey.collect.android.views.MultiClickSafeButton
                     android:id="@+id/review_data"
                     style="@style/Widget.Collect.Button.FullWidth"
                     android:layout_width="match_parent"
@@ -108,7 +108,7 @@
                     android:drawableTop="@drawable/ic_form_edit"
                     tools:text="@string/review_data" />
 
-                <org.gps.collect.android.views.MultiClickSafeButton
+                <org.gpssurvey.collect.android.views.MultiClickSafeButton
                     android:id="@+id/manage_forms"
                     style="@style/Widget.Collect.Button.FullWidth"
                     android:layout_width="match_parent"
@@ -119,7 +119,7 @@
                     android:drawableTop="@drawable/ic_form_remove"
                     tools:text="@string/manage_files" />
 
-                <org.gps.collect.android.views.MultiClickSafeButton
+                <org.gpssurvey.collect.android.views.MultiClickSafeButton
                     android:id="@+id/get_forms"
                     style="@style/Widget.Collect.Button.FullWidth"
                     android:layout_width="match_parent"

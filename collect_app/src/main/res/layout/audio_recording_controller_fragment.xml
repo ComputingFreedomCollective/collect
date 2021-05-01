@@ -37,7 +37,7 @@
             android:text="@string/recording"
             android:textColor="?colorOnPrimary" />
 
-        <org.gps.collect.android.audio.Waveform
+        <org.gpssurvey.collect.android.audio.Waveform
             android:id="@+id/waveform"
             android:layout_width="24dp"
             android:layout_height="24dp"

@@ -54,23 +54,23 @@ task checkTests(type: GradleBuild) {
 
 task checkFeature(type: GradleBuild) {
     tasks = ["connectedDebugAndroidTest"]
-    startParameter.projectProperties = ["android.testInstrumentationRunnerArguments.package": "org.gps.collect.android.feature"]
+    startParameter.projectProperties = ["android.testInstrumentationRunnerArguments.package": "org.gpssurvey.collect.android.feature"]
 }
 
 task checkRegression(type: GradleBuild) {
     tasks = ["connectedDebugAndroidTest"]
-    startParameter.projectProperties = ["android.testInstrumentationRunnerArguments.package": "org.gps.collect.android.regression"]
+    startParameter.projectProperties = ["android.testInstrumentationRunnerArguments.package": "org.gpssurvey.collect.android.regression"]
 }
 
 task checkInstrumented(type: GradleBuild) {
     tasks = ["connectedDebugAndroidTest"]
-    startParameter.projectProperties = ["android.testInstrumentationRunnerArguments.package": "org.gps.collect.android.instrumented"]
+    startParameter.projectProperties = ["android.testInstrumentationRunnerArguments.package": "org.gpssurvey.collect.android.instrumented"]
 }
 
 ext {
     androidCompileSdk = 30
     androidMinSdk = 21
-    androidTargetSdk = 29
+    androidTargetSdk = 30
 
     fragmentVersion = '1.2.5'
     daggerVersion = '2.30.1'

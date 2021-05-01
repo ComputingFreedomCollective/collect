@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.gps.collect.android.activities.ScannerWithFlashlightActivity">
+    tools:context="org.gpssurvey.collect.android.activities.ScannerWithFlashlightActivity">
 
     <androidx.fragment.app.FragmentContainerView
-        android:name="org.gps.collect.android.fragments.BarcodeWidgetScannerFragment"
+        android:name="org.gpssurvey.collect.android.fragments.BarcodeWidgetScannerFragment"
         android:id="@+id/fragmentContainerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
